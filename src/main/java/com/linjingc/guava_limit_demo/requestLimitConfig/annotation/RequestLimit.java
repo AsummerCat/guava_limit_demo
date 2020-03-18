@@ -1,6 +1,7 @@
 package com.linjingc.guava_limit_demo.requestLimitConfig.annotation;
 
 
+import com.linjingc.guava_limit_demo.requestLimitConfig.Strategy.ReleaseTimeoutStrategy;
 import com.linjingc.guava_limit_demo.requestLimitConfig.basicLimitType.LimitType;
 
 import java.lang.annotation.ElementType;
@@ -45,4 +46,10 @@ public @interface RequestLimit {
 	 * @return keys
 	 */
 	String[] keys() default {};
+	/**
+	 * 获取令牌失败的处理策略
+	 *
+	 * @see ReleaseTimeoutStrategy
+	 */
+	ReleaseTimeoutStrategy ReleaseTimeoutStrategy() default ReleaseTimeoutStrategy.NO_OPERATION;
 }

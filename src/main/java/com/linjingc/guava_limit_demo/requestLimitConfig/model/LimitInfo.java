@@ -9,11 +9,10 @@ import lombok.Data;
 @Data
 public class LimitInfo {
 
-	public LimitInfo(String name, LimitType type, Double value, String ip) {
+	public LimitInfo(String name, LimitType type, Double value) {
 		this.name = name;
 		this.type = type;
 		this.value = value;
-		this.ip = ip;
 	}
 
 	/**
@@ -32,10 +31,6 @@ public class LimitInfo {
 	 */
 	private Double value;
 
-	/**
-	 * 访问的ip
-	 */
-	private String ip;
 
 
 }
