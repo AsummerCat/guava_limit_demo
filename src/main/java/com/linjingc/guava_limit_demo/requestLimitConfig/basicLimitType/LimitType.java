@@ -1,19 +1,23 @@
 package com.linjingc.guava_limit_demo.requestLimitConfig.basicLimitType;
 
 /**
- * 限流类型
+ * 令牌桶限流类型
  */
 public enum LimitType {
 	/**
-	 * 控制线程限流
+	 * 令牌桶限流 默认
 	 */
-	ThreadLimiter,
+	TokenBucketLimiter,
 	/**
-	 * 信号量限流
+	 * 根据ip限流
 	 */
-	semaphoreLimit,
+	IpLimiter,
+	/**
+	 * 根据IP和method限流
+	 */
+	IpAndMethodLimiter;
 
 	LimitType() {
 	}
 
-}
+	}

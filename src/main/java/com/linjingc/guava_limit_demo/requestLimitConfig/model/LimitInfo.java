@@ -9,9 +9,11 @@ import lombok.Data;
 @Data
 public class LimitInfo {
 
-	public LimitInfo(String name, LimitType type) {
+	public LimitInfo(String name, LimitType type, Double value, String ip) {
 		this.name = name;
 		this.type = type;
+		this.value = value;
+		this.ip = ip;
 	}
 
 	/**
@@ -25,11 +27,15 @@ public class LimitInfo {
 
 	/**
 	 * 限流的速率
+	 *
 	 * @return
 	 */
 	private Double value;
 
-
+	/**
+	 * 访问的ip
+	 */
+	private String ip;
 
 
 }

@@ -32,10 +32,12 @@ public @interface RequestLimit {
 
 	/**
 	 * 限流类型
+	 * 具体类型参考
+	 * @see LimitType
 	 *
 	 * @return
 	 */
-	LimitType limitType() default LimitType.ThreadLimiter;
+	LimitType limitType() default LimitType.TokenBucketLimiter;
 
 	/**
 	 * 自定义业务key

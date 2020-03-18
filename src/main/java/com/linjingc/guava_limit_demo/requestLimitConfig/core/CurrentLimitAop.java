@@ -42,9 +42,7 @@ public class CurrentLimitAop {
 		LimitInfo limitInfo = businessKeyProvider.get(joinPoint, requestLimit);
 		//根据工厂模式 获取到CurrentLimit
 		CurrentLimit currentLimit = currentLimitFactory.getLimit(limitInfo);
-		RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
-		ServletRequestAttributes sra = (ServletRequestAttributes) requestAttributes;
-		HttpServletRequest request = sra.getRequest();
+
 		if (!currentLimit.acquire()) {
 			String data = "限流中";
 			return data;
@@ -55,5 +53,6 @@ public class CurrentLimitAop {
 		return joinPoint.proceed();
 
 	}
+
 
 }

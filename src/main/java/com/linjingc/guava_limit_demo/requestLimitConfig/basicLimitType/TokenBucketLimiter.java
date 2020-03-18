@@ -2,21 +2,18 @@ package com.linjingc.guava_limit_demo.requestLimitConfig.basicLimitType;
 
 import com.google.common.util.concurrent.RateLimiter;
 import com.linjingc.guava_limit_demo.requestLimitConfig.model.LimitInfo;
-import lombok.Data;
 
 /**
  * 使用限流
- * 基于信号量实现
+ * 基于令牌桶实现
  */
-@Data
-public class SemaphoreLimit implements CurrentLimit {
+public class TokenBucketLimiter implements CurrentLimit {
 	private RateLimiter limiter;
 	private LimitInfo limitInfo;
 
-	public SemaphoreLimit(LimitInfo limitInfo) {
+	public TokenBucketLimiter(LimitInfo limitInfo) {
 		this.limitInfo = limitInfo;
-
-		this.limiter = RateLimiter.create(0.5d);
+		this.limiter = RateLimiter.create(limitInfo.getValue());
 	}
 
 	@Override
