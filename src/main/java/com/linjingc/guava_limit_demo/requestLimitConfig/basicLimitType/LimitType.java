@@ -9,8 +9,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * 枚举
  * 令牌桶限流类型
  * 并且获取限流前缀名称
+ *
+ * @author 一只写Bug的猫
+ * @date 2020年3月19日08:55:15
  */
 public enum LimitType implements LimitNameHandler {
 	/**

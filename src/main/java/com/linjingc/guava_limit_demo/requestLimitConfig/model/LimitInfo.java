@@ -5,6 +5,9 @@ import lombok.Data;
 
 /**
  * 当前限流属性
+ *
+ * @author 一只写Bug的猫
+ * @since 2019年8月8日18:19:18
  */
 @Data
 public class LimitInfo {

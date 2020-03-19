@@ -9,9 +9,9 @@ import java.time.LocalDateTime;
 
 
 /**
- * 释放超时的 策略
+ * 限流获取失败的 策略接口
  *
- * @author cxc
+ * @author 一只写Bug的猫
  * @date 2019年8月8日18:21:28
  **/
 public enum ReleaseTimeoutStrategy implements AcquireTokenFailureHandler {

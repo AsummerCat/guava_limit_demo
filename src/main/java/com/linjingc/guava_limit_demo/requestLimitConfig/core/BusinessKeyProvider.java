@@ -21,9 +21,10 @@ import java.util.List;
 
 /**
  * 获取用户定义业务key
+ * 生成限流info的内容
  *
- * @author cxc
- * @date 2019年08月08日20:52:40
+ * @author 一只写Bug的猫
+ * @date 2020年3月19日08:45:32
  */
 @Component
 public class BusinessKeyProvider {

@@ -4,7 +4,7 @@ package com.linjingc.guava_limit_demo.requestLimitConfig.exception;
 /**
  * 自定义获取令牌失败 错误
  *
- * @author cxc
+ * @author 一只写Bug的猫
  * @date 2019年8月8日18:16:08
  */
 public class AcquireTimeoutException extends RuntimeException {

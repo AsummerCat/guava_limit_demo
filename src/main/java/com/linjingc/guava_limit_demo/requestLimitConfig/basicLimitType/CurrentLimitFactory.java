@@ -8,6 +8,12 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 创建限流器的工厂
+ *
+ * @author 一只写Bug的猫
+ * @date 2020年3月19日08:55:15
+ */
 @Component
 public class CurrentLimitFactory {
 	/**
