@@ -59,7 +59,7 @@ public @interface RequestLimit {
 	 */
      long delayTime() default 0;
 	/**
-	 * 过期时间的类型
+	 * 过期时间的类型 默认分钟
 	 */
 	 TimeUnit unit() default TimeUnit.MINUTES;
 }

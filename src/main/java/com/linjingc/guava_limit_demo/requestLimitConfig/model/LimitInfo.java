@@ -3,8 +3,6 @@ package com.linjingc.guava_limit_demo.requestLimitConfig.model;
 import com.linjingc.guava_limit_demo.requestLimitConfig.basicLimitType.LimitType;
 import lombok.Data;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * 当前限流属性
  *
@@ -45,11 +43,7 @@ public class LimitInfo {
 	/**
 	 * 延迟时间 -> 多久过期
 	 * 毫秒
-     */
-	private Long delayTime =0L;
-
-
-
-
+	 */
+	private Long delayTime = 0L;
 
 }

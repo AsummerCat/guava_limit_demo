@@ -20,7 +20,6 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
 
 /**
@@ -74,7 +73,7 @@ public class CurrentLimitAop {
 			HttpServletResponse response = sra.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("application/json; charset=utf-8");
-			try (ServletOutputStream out = response.getOutputStream()){
+			try (ServletOutputStream out = response.getOutputStream()) {
 				out.write(ex.getMessage().getBytes(StandardCharsets.UTF_8));
 				out.flush();
 			} catch (IOException e) {

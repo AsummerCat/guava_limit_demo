@@ -40,7 +40,7 @@ public class BusinessKeyProvider {
 		String limitName = type.prefixName(joinPoint) + ":" + getName(requestLimit.name(), signature) + businessKeyName;
 		//根据过期时间添加 时间戳
 		if(requestLimit.delayTime()>0){
-			//计算
+			//计算毫秒
 			long delayMillis = requestLimit.unit().toMillis(requestLimit.delayTime());
 			return new LimitInfo(limitName, type, requestLimit.value(),delayMillis);
 		}else{
