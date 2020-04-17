@@ -17,9 +17,11 @@ import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 
 /**
  * 限流切面类
@@ -72,16 +74,11 @@ public class CurrentLimitAop {
 			HttpServletResponse response = sra.getResponse();
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("application/json; charset=utf-8");
-			PrintWriter out = null;
-			try {
-				out = response.getWriter();
-				out.append(ex.getMessage());
+			try (ServletOutputStream out = response.getOutputStream()){
+				out.write(ex.getMessage().getBytes(StandardCharsets.UTF_8));
+				out.flush();
 			} catch (IOException e) {
 				e.printStackTrace();
-			} finally {
-				if (out != null) {
-					out.close();
-				}
 			}
 		} else {
 			// do nothing

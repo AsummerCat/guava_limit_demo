@@ -8,6 +8,7 @@ import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 限流注解
@@ -52,4 +53,13 @@ public @interface RequestLimit {
 	 * @see ReleaseTimeoutStrategy
 	 */
 	ReleaseTimeoutStrategy ReleaseTimeoutStrategy() default ReleaseTimeoutStrategy.NO_OPERATION;
+
+	/**
+	 * 过期时间
+	 */
+     long delayTime() default 0;
+	/**
+	 * 过期时间的类型
+	 */
+	 TimeUnit unit() default TimeUnit.MINUTES;
 }

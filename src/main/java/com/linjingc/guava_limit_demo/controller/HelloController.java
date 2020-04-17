@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 public class HelloController {
 
 	@RequestMapping("index")
-	@RequestLimit(ReleaseTimeoutStrategy = ReleaseTimeoutStrategy.FAIL_FAST, value = 0.5d)
+	@RequestLimit(ReleaseTimeoutStrategy = ReleaseTimeoutStrategy.FAIL_FAST, value = 0.5d,delayTime = 1)
 	public String index(HttpServletRequest httpServletRequest) {
 		return "这是首页";
 	}

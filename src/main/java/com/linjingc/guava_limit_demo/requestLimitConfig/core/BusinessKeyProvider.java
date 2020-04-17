@@ -38,8 +38,14 @@ public class BusinessKeyProvider {
 		String businessKeyName = getKeyName(joinPoint, requestLimit);
 		//根据自定义name配置 如果存在name 则使用name,否则使用方法名当做name
 		String limitName = type.prefixName(joinPoint) + ":" + getName(requestLimit.name(), signature) + businessKeyName;
-		//实例化限流实体类
-		return new LimitInfo(limitName, type, requestLimit.value());
+		//根据过期时间添加 时间戳
+		if(requestLimit.delayTime()>0){
+			//计算
+			long delayMillis = requestLimit.unit().toMillis(requestLimit.delayTime());
+			return new LimitInfo(limitName, type, requestLimit.value(),delayMillis);
+		}else{
+			return new LimitInfo(limitName, type, requestLimit.value());
+		}
 	}
 
 
