@@ -30,9 +30,9 @@ public enum LimitType implements LimitNameHandler {
 
 
 	/**
-	 * 根据ip限流
+	 * 根据IP和method限流
 	 */
-	IpLimiter() {
+	IpAndMethodLimiter() {
 		@Override
 		public String prefixName(JoinPoint joinPoint) {
 			//获取访问的ip
@@ -48,13 +48,17 @@ public enum LimitType implements LimitNameHandler {
 
 
 	/**
-	 * 根据IP和method限流
+	 * 根据ip限流
 	 */
-	IpAndMethodLimiter() {
+	IpLimiter() {
 		@Override
 		public String prefixName(JoinPoint joinPoint) {
-			String name = this.getClass().getName();
-			return name;
+			//获取访问的ip
+			RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
+			ServletRequestAttributes sra = (ServletRequestAttributes) requestAttributes;
+			HttpServletRequest request = sra.getRequest();
+			String ipAddress = getIpAddress(request);
+			return ipAddress;
 		}
 	};
 
