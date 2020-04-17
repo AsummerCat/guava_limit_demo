@@ -20,7 +20,7 @@ import java.lang.annotation.Target;
 public @interface RequestLimit {
 
 	/**
-	 * 限流的速率
+	 * 限流的速率 数值/1秒=次数
 	 *
 	 * @return
 	 */
