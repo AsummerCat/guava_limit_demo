@@ -37,7 +37,8 @@ public class BusinessKeyProvider {
 		//根据自定义业务key 获取keyName
 		String businessKeyName = getKeyName(joinPoint, requestLimit);
 		//根据自定义name配置 如果存在name 则使用name,否则使用方法名当做name
-		String limitName = type.prefixName(joinPoint) + ":" + getName(requestLimit.name(), signature) + businessKeyName;
+//		String limitName = type.prefixName(joinPoint) + ":" + getName(requestLimit.name(), signature) + businessKeyName;
+		String limitName = "RequestLimit:" + getName(requestLimit.name(), signature) + businessKeyName;
 		//根据过期时间添加 时间戳
 		if(requestLimit.delayTime()>0){
 			//计算毫秒
